@@ -63,11 +63,8 @@ def nextarg(arg):
 if "-wb" in sys.argv:
     try:
         wordsbase = open(nextarg("-wb"))
-        adjective = wordsbase.readline()[:-1].split(",")
-        person = wordsbase.readline()[:-1].split(",")
-        verb = wordsbase.readline()[:-1].split(",")
-        place = wordsbase.readline()[:-1].split(",")
-        template = wordsbase.readline()[:-1]
+        basetext = wordsbase.read()
+        exec(basetext)
         wordsbase.close()
         if not (len(adjective) > 0 and len(person) > 0 and len(verb) > 0 and len(place) > 0 and len(template) > 0):
             print ("invalid wordsbase")

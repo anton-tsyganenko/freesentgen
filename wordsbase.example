@@ -1,5 +1,5 @@
-hungry,brave,fat
-cat,dog,python,hamster
-sleeping,eating chocolate
-on the table,in the forest,in the zoo
-A {adjective} {person} is {verb} {place}. 
+adjective = ['hungry', 'brave', 'fat', 'soft']
+person = ['cat', 'dog', 'python', 'hamster']
+verb = ['sleeping', 'eating chocolate']
+place = ['on the table', 'in the forest', 'in the zoo']
+template = 'A {adjective} {person} is {verb} {place}. '
