@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+
+# Copyright (c) 2013 Anton Tsyganenko
+# this program is published under the MIT license. see LICENSE.txt for licensing details .
+
+import sys
+import random
+
+defaultNum = 30
+version = "1.0"
+
+if "-h" in sys.argv:
+    print (
+"Freesentgen - free random sentences generator by Anton Tsyganenko\n\
+version: {v}\n\n\
+options:\n\
+-wb <file>    - use external base of words\n\
+-n <number>   - number of sentences\n\
+-o <file>     - output to file\n\
+-i            - show information about author and base of words\n\
+-nss <value>  - non-default separator. available values: none, br, br+nl or your arbitrary value\n\
+-h            - this help\n\n\
+examples of usage:\n\
+./freesentgen.py -wb wordsbase.txt -n 10 -i -nss br+nl\n\
+./freesentgen.py -o ../content.html -nss \<hr\> -n 50\n\n\
+see README.txt for deatils\n\
+this program is published under the MIT license. see LICENSE.txt for licensing details.".format(v=version))
+    exit()
+
+#######################################
+adjective = ["A strange", "A big", "A bad", "A dirty", "A funny", "A tired", "A happy", "A clever", "A beautiful", "A silly", "A bored", "A crazy", "An amazing", "A hungry", "A brave", "A fat", "A young", "A sad", "A raring", "An evil"]
+###################
+person = ["cat", "dog", "child", "python", "alien", "terminator", "spy", "boy", "girl", "robot", "programmer", "teacher", "policeman", "astronaut", "neighbor", "ghost", "man", "ringtail", "president", "monster"]
+###################
+verb = ["singing", "playing", "sleeping", "eating chocolate", "living", "taking pictures", "working", "counting money", "dancing", "programming", "crying", "jumping", "having fun", "laughing", "spying", "farting", "exploding something", "destroying everything"]
+###################
+place = ["on the table", "in the prison", "in the school", "in its county house", "at home", "outdoors", "in the theater", "in its room", "at work", "on the roof", "on the bed", "in the cupboard", "on the moon", "under the table", "in the desert", "in the white house", "behind the door","in the underground"]
+###################
+template = "{adjective} {person} is {verb} {place}. "
+#######################################
+
+def nextarg(arg):
+    return sys.argv[sys.argv.index(arg) + 1]
+
+if "-wb" in sys.argv:
+    try:
+        wordsbase = open(nextarg("-wb"))
+        adjective = wordsbase.readline()[:-1].split(",")
+        person = wordsbase.readline()[:-1].split(",")
+        verb = wordsbase.readline()[:-1].split(",")
+        place = wordsbase.readline()[:-1].split(",")
+        template = wordsbase.readline()[:-1]
+        wordsbase.close()
+        if not (len(adjective) > 0 and len(person) > 0 and len(verb) > 0 and len(place) > 0 and len(template) > 0):
+            print ("invalid wordsbase")
+            exit()
+    except:
+        print ("invalid wordsbase or wordsbase not found")
+        exit()
+
+if "-n" in sys.argv:
+    try:
+        num = int(nextarg("-n"))
+    except ValueError:
+        print ("number of sentenses should be an integer!")
+        num = defaultNum
+else:
+    num = defaultNum
+
+if "-nss" in sys.argv:
+    if nextarg ("-nss") == "none":
+        nss = ""
+    elif nextarg ("-nss") == "br":
+        nss = "<br>"
+    elif nextarg ("-nss") == "br+nl":
+        nss = "<br>\n"
+    else:
+        nss = nextarg("-nss") + "\n"
+else:
+    nss = "\n"
+
+if "-i" in sys.argv:
+    print ("=================================================")
+    print ("Freesentgen {v} by Anton Tsyganenko".format(v=version).ljust(48)+"\\\\")
+    print ("words base info:".ljust(49)+"\\\\")
+    print ((str(len(adjective)) + " adjectives").ljust(50)+"\\\\")
+    print ((str(len(person)) + " persons").ljust(51)+"))")
+    print ((str(len(adjective)) + " verbss").ljust(50)+"//")
+    print ((str(len(adjective)) + " places").ljust(49)+"//")
+    print ((str(len(adjective) * len(person) * len(verb) * len(place)) + " combinations available").ljust(48)+"//")
+    print ("=================================================")
+
+result = ""
+for i in range(num):
+    result += template.format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)) + nss
+
+if "-o" in sys.argv:
+    outFile = open(nextarg("-o"), "w")
+    print ("output redirected to " + nextarg("-o"))
+    outFile.write(result)
+else:
+    print (result)
