@@ -24,12 +24,12 @@
 import sys
 import random
 
-defaultNum = 30
-version = "1.0"
+defaultNum = 30                                                  # default number of sentences
+version = "1.0-dev"
 
 
 
-if "-h" in sys.argv:
+if "-h" in sys.argv:                                             # printing help
     print (
 "Freesentgen - free random sentences generator by Anton Tsyganenko\n\
 version: {v}\n\n\
@@ -37,7 +37,6 @@ options:\n\
 -add <file>   - use an addition\n\
 -n <number>   - number of sentences\n\
 -o <file>     - output to file\n\
--i            - show information about author and base of words\n\
 -nss <value>  - non-default separator. available values: none, br, br+nl or your arbitrary value\n\
 -h            - this help\n\n\
 examples of usage:\n\
@@ -47,26 +46,24 @@ see README.txt for deatils\n\
 this program is published under the MIT license. see LICENSE.txt for licensing details.".format(v=version))
     exit()
 
-#######################################
+
+
+                                                                 # default base of words and template
 adjective = ["A strange", "A big", "A bad", "A dirty", "A funny", "A tired", "A happy", "A clever", "A beautiful", "A silly", "A bored", "A crazy", "An amazing", "A hungry", "A brave", "A fat", "A young", "A sad", "A raring", "An evil"]
-###################
 person = ["cat", "dog", "child", "python", "alien", "terminator", "spy", "boy", "girl", "robot", "programmer", "teacher", "policeman", "astronaut", "neighbor", "ghost", "man", "ringtail", "president", "monster"]
-###################
 verb = ["singing", "playing", "sleeping", "eating chocolate", "living", "taking pictures", "working", "counting money", "dancing", "programming", "crying", "jumping", "having fun", "laughing", "spying", "farting", "exploding something", "destroying everything"]
-###################
 place = ["on the table", "in the prison", "in the school", "in its county house", "at home", "outdoors", "in the theater", "in its room", "at work", "on the roof", "on the bed", "in the cupboard", "on the moon", "under the table", "in the desert", "in the white house", "behind the door", "in the underground"]
-###################
+
 def getSent():
     return "{adjective} {person} is {verb} {place}. ".format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)) + nss
-#######################################
 
 
-def nextarg(arg):
+def nextarg(arg):                                                # function for better readability
     return sys.argv[sys.argv.index(arg) + 1]
 
 
 
-if "-add" in sys.argv:
+if "-add" in sys.argv:                                           # additions support
     try:
         addfile = open(nextarg("-add"), "r")
         addtext = addfile.read()
@@ -77,7 +74,7 @@ if "-add" in sys.argv:
 
 
 
-if "-n" in sys.argv:
+if "-n" in sys.argv:                                             # number of sentences
     try:
         num = int(nextarg("-n"))
     except ValueError:
@@ -88,7 +85,7 @@ else:
 
 
 
-if "-nss" in sys.argv:
+if "-nss" in sys.argv:                                           # nss: New Sentence Separator
     if nextarg ("-nss") == "none":
         nss = ""
     elif nextarg ("-nss") == "br":
@@ -102,11 +99,13 @@ else:
 
 
 
-result = ""
+result = ""                                                      # generate the result
 for i in range(num):
     result += getSent()
 
-if "-o" in sys.argv:
+
+
+if "-o" in sys.argv:                                             # output the result
     outFile = open(nextarg("-o"), "w")
     print ("output redirected to " + nextarg("-o"))
     outFile.write(result)
