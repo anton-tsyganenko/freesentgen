@@ -54,11 +54,17 @@ verb = ["singing", "playing", "sleeping", "eating chocolate", "living", "taking 
 ###################
 place = ["on the table", "in the prison", "in the school", "in its county house", "at home", "outdoors", "in the theater", "in its room", "at work", "on the roof", "on the bed", "in the cupboard", "on the moon", "under the table", "in the desert", "in the white house", "behind the door", "in the underground"]
 ###################
-template = "{adjective} {person} is {verb} {place}. "
+def getSent():
+    return "{adjective} {person} is {verb} {place}. ".format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)) + nss
 #######################################
 
 def nextarg(arg):
     return sys.argv[sys.argv.index(arg) + 1]
+
+if "-wb" in sys.argv:
+    wbfile = open(nextarg("-wb"), "r")
+    wbtext = wbfile.read()
+    exec(wbtext)
 
 if "-n" in sys.argv:
     try:
@@ -94,7 +100,7 @@ if "-i" in sys.argv:
 
 result = ""
 for i in range(num):
-    result += template.format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)) + nss
+    result += getSent()
 
 if "-o" in sys.argv:
     outFile = open(nextarg("-o"), "w")

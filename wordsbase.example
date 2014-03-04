@@ -2,4 +2,5 @@ adjective = ['hungry', 'brave', 'fat', 'soft']
 person = ['cat', 'dog', 'python', 'hamster']
 verb = ['sleeping', 'eating chocolate']
 place = ['on the table', 'in the forest', 'in the zoo']
-template = 'A {adjective} {person} is {verb} {place}. '
+def genSent():
+    return "A {adjective} {person} is {verb} {place}. ".format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)) + nss
