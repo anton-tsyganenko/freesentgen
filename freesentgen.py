@@ -60,19 +60,6 @@ template = "{adjective} {person} is {verb} {place}. "
 def nextarg(arg):
     return sys.argv[sys.argv.index(arg) + 1]
 
-if "-wb" in sys.argv:
-    try:
-        wordsbase = open(nextarg("-wb"))
-        basetext = wordsbase.read()
-        exec(basetext)
-        wordsbase.close()
-        if not (len(adjective) > 0 and len(person) > 0 and len(verb) > 0 and len(place) > 0 and len(template) > 0):
-            print ("invalid wordsbase")
-            exit()
-    except:
-        print ("invalid wordsbase or wordsbase not found")
-        exit()
-
 if "-n" in sys.argv:
     try:
         num = int(nextarg("-n"))
