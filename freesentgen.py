@@ -62,9 +62,13 @@ def nextarg(arg):
     return sys.argv[sys.argv.index(arg) + 1]
 
 if "-add" in sys.argv:
-    addfile = open(nextarg("-add"), "r")
-    addtext = addfile.read()
-    exec(addtext)
+    try:
+        addfile = open(nextarg("-add"), "r")
+        addtext = addfile.read()
+        exec(addtext)
+    except:
+        print("invalid addition or addition not found")
+        exit()
 
 if "-n" in sys.argv:
     try:
