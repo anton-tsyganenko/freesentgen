@@ -14,12 +14,12 @@ run freesentgen.py with python 3
 ##usage:
 
 options:
--wb <file>    - use external base of words. you can read about bases of words in wordbase documentation
--n <number>   - number of sentences you want to generate
--o <file>     - output to file
--i            - show information
--nss <value>  - non-default separator. available values: none, br(html-tag "<br>"), br+nl("<br>" tag + new line) or any text (it will be inserted between sentences)
--h            - show help
+'-wb <file>'    - use external base of words. you can read about bases of words in wordbase documentation
+'-n <number>'   - number of sentences you want to generate
+'-o <file>'     - output to file
+'-i'            - show information
+'-nss <value>'  - non-default separator. available values: none, br(html-tag "<br>"), br+nl("<br>" tag + new line) or any text (it will be inserted between sentences)
+'-h'            - show help
 
 examples of usage:
 
