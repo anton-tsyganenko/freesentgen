@@ -32,7 +32,7 @@ if "-h" in sys.argv:
 "Freesentgen - free random sentences generator by Anton Tsyganenko\n\
 version: {v}\n\n\
 options:\n\
--wb <file>    - use external base of words\n\
+-add <file>   - use an addition\n\
 -n <number>   - number of sentences\n\
 -o <file>     - output to file\n\
 -i            - show information about author and base of words\n\
@@ -61,10 +61,10 @@ def getSent():
 def nextarg(arg):
     return sys.argv[sys.argv.index(arg) + 1]
 
-if "-wb" in sys.argv:
-    wbfile = open(nextarg("-wb"), "r")
-    wbtext = wbfile.read()
-    exec(wbtext)
+if "-add" in sys.argv:
+    addfile = open(nextarg("-add"), "r")
+    addtext = addfile.read()
+    exec(addtext)
 
 if "-n" in sys.argv:
     try:

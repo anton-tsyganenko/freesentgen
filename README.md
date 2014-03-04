@@ -14,7 +14,7 @@ run freesentgen.py with python 3
 ##usage:
 
 options:
-'-wb <file>'    - use external base of words. you can read about bases of words in wordbase documentation
+'-add <file>'   - use an addition
 '-n <number>'   - number of sentences you want to generate
 '-o <file>'     - output to file
 '-i'            - show information
@@ -23,19 +23,15 @@ options:
 
 examples of usage:
 
-	./freesentgen.py -wb wordsbase.txt -n 10 -i -nss br+nl
+	./freesentgen.py -add wordsbase.txt -n 10 -i -nss br+nl
 	./freesentgen.py -o ../content.html -nss \<hr\> -n 50
 
-##bases of words documentation:
+##additions documentation:
 
-first line - adjectives
-second line - persons
-third line - verbs
-fourth line - places (in fact it can be not a place)
-fifth line - layout
-sixth line and next - anything you want.
-values in 1-4 line should be separated with comma and WITHOUT space.
-see "wordbase.example" for real example of base of words.
+additions can add new features to the freesentgen.
+they are normal python 3 files.
+the example of addition is a base of words. it should contain function getSent(), that would generate a sentence.
+see "addition-wordbase.example" for real example of addition.
 
 ##bug reporting:
 
