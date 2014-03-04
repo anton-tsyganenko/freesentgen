@@ -17,13 +17,12 @@ options:
 '-add <file>'   - use an addition
 '-n <number>'   - number of sentences you want to generate
 '-o <file>'     - output to file
-'-i'            - show information
 '-nss <value>'  - non-default separator. available values: none, br(html-tag "<br>"), br+nl("<br>" tag + new line) or any text (it will be inserted between sentences)
 '-h'            - show help
 
 examples of usage:
 
-	./freesentgen.py -add wordsbase.txt -n 10 -i -nss br+nl
+	./freesentgen.py -add wordsbase.txt -n 10 -nss br+nl
 	./freesentgen.py -o ../content.html -nss \<hr\> -n 50
 
 ##additions documentation:

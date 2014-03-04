@@ -27,6 +27,8 @@ import random
 defaultNum = 30
 version = "1.0"
 
+
+
 if "-h" in sys.argv:
     print (
 "Freesentgen - free random sentences generator by Anton Tsyganenko\n\
@@ -58,8 +60,11 @@ def getSent():
     return "{adjective} {person} is {verb} {place}. ".format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)) + nss
 #######################################
 
+
 def nextarg(arg):
     return sys.argv[sys.argv.index(arg) + 1]
+
+
 
 if "-add" in sys.argv:
     try:
@@ -70,6 +75,8 @@ if "-add" in sys.argv:
         print("invalid addition or addition not found")
         exit()
 
+
+
 if "-n" in sys.argv:
     try:
         num = int(nextarg("-n"))
@@ -78,6 +85,8 @@ if "-n" in sys.argv:
         num = defaultNum
 else:
     num = defaultNum
+
+
 
 if "-nss" in sys.argv:
     if nextarg ("-nss") == "none":
@@ -91,16 +100,7 @@ if "-nss" in sys.argv:
 else:
     nss = "\n"
 
-if "-i" in sys.argv:
-    print ("=================================================")
-    print ("Freesentgen {v} by Anton Tsyganenko".format(v=version).ljust(48)+"\\\\")
-    print ("words base info:".ljust(49)+"\\\\")
-    print ((str(len(adjective)) + " adjectives").ljust(50)+"\\\\")
-    print ((str(len(person)) + " persons").ljust(51)+"))")
-    print ((str(len(adjective)) + " verbss").ljust(50)+"//")
-    print ((str(len(adjective)) + " places").ljust(49)+"//")
-    print ((str(len(adjective) * len(person) * len(verb) * len(place)) + " combinations available").ljust(48)+"//")
-    print ("=================================================")
+
 
 result = ""
 for i in range(num):
