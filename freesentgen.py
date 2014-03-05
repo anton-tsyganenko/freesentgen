@@ -49,10 +49,10 @@ this program is published under the MIT license. see LICENSE.txt for licensing d
 
 
                                                                  # default base of words and template
-adjective = ["A strange", "A big", "A bad", "A dirty", "A funny", "A tired", "A happy", "A clever", "A beautiful", "A silly", "A bored", "A crazy", "An amazing", "A hungry", "A brave", "A fat", "A young", "A sad", "A raring", "An evil"]
-person = ["cat", "dog", "child", "python", "alien", "terminator", "spy", "boy", "girl", "robot", "programmer", "teacher", "policeman", "astronaut", "neighbor", "ghost", "man", "ringtail", "president", "monster"]
-verb = ["singing", "playing", "sleeping", "eating chocolate", "living", "taking pictures", "working", "counting money", "dancing", "programming", "crying", "jumping", "having fun", "laughing", "spying", "farting", "exploding something", "destroying everything"]
-place = ["on the table", "in the prison", "in the school", "in its county house", "at home", "outdoors", "in the theater", "in its room", "at work", "on the roof", "on the bed", "in the cupboard", "on the moon", "under the table", "in the desert", "in the white house", "behind the door", "in the underground"]
+adjective = ["A strange", "A big", "A bad", "A dirty", "A funny", "A tired", "A happy", "A clever", "A beautiful", "A silly", "A bored", "A crazy", "An amazing", "A hungry", "A brave", "A fat", "A young", "A sad", "A raring", "An evil", "A trusty", "A rich"]
+person = ["cat", "dog", "child", "python", "alien", "terminator", "spy", "boy", "girl", "robot", "programmer", "teacher", "policeman", "astronaut", "neighbor", "ghost", "man", "ringtail", "president", "monster", "tahr", "businessman"]
+verb = ["singing", "playing", "sleeping", "eating chocolate", "living", "taking pictures", "working", "counting money", "dancing", "programming", "crying", "jumping", "having fun", "laughing", "spying", "farting", "exploding something", "destroying everything", "studying", "hiding"]
+place = ["on the table", "in the prison", "in the school", "in its county house", "at home", "outdoors", "in the theater", "in its room", "at work", "on the roof", "on the bed", "in the cupboard", "on the moon", "under the table", "in the desert", "in the white house", "behind the door", "in the underground", "in your flat", "in the parallel world"]
 
 def getSent():
     return "{adjective} {person} is {verb} {place}. ".format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)) + nss
