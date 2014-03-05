@@ -109,5 +109,6 @@ if "-o" in sys.argv:                                             # output the re
     outFile = open(nextarg("-o"), "w")
     print ("output redirected to " + nextarg("-o"))
     outFile.write(result)
+    outFile.close()
 else:
     print (result)
