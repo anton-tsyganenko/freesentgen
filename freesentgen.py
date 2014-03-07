@@ -25,7 +25,7 @@ import sys
 import random
 
 defaultNum = 30                                                  # default number of sentences
-version = "1.0-dev"
+version = "2.0"
 
 
 
