@@ -25,14 +25,12 @@ import sys
 import random
 
 defaultNum = 30                                                  # default number of sentences
-version = "2.1"
 
 
 
 if "-h" in sys.argv:                                             # printing help
     print (
 "Freesentgen - free random sentences generator by Anton Tsyganenko\n\
-version: {v}\n\n\
 options:\n\
 -add <file>   - use an addition\n\
 -n <number>   - number of sentences\n\
