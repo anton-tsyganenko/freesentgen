@@ -57,7 +57,11 @@ def getSent():
 
 
 def nextarg(arg):                                                # function for better readability
-    return sys.argv[sys.argv.index(arg) + 1]
+    try:
+        return sys.argv[sys.argv.index(arg) + 1]
+    except:
+        print ("no argument value found. use \"./freesentgen -h\" for help")
+        exit ()
 
 
 
