@@ -23,7 +23,11 @@ options:
 ###examples of usage
 
 	./freesentgen.py -add wordsbase.txt -n 10 -nss br+nl
+	
 	./freesentgen.py -o ../content.html -nss \<hr\> -n 50
+	
+	./freesentgen.py -nss "</p>
+	<p>"
 
 ##additions documentation
 

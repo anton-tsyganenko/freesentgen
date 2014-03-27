@@ -95,7 +95,7 @@ if "-nss" in sys.argv:                                           # nss: New Sent
     elif nextarg ("-nss") == "br+nl":
         nss = "<br>\n"
     else:
-        nss = nextarg("-nss") + "\n"
+        nss = nextarg("-nss")
 else:
     nss = "\n"
 
