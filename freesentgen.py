@@ -51,11 +51,11 @@ adjective = ["A strange", "A big", "A bad", "A dirty", "A funny", "A tired", "A 
 person = ["cat", "dog", "child", "python", "alien", "terminator", "spy", "boy", "girl", "robot", "programmer", "teacher", 
 "policeman", "astronaut", "neighbor", "ghost", "man", "ringtail", "president", "monster", "tahr", "businessman", "killer", 
 "penguin"]
-verb = ["singing", "playing", "sleeping", "eating chocolate", "living", "taking pictures", "working", "counting money", "dancing", "programming", "crying", "jumping", "having fun", "laughing", "spying", "farting", "exploding something", "destroying everything", "studying", "hiding", "\b"]
+verb = ["singing", "playing", "sleeping", "eating chocolate", "living", "taking pictures", "working", "counting money", "dancing", "programming", "crying", "jumping", "having fun", "laughing", "spying", "farting", "exploding something", "destroying everything", "studying", "hiding", ""]
 place = ["on the table", "in the prison", "in the school", "in its county house", "at home", "outdoors", "in the theater", "in its room", "at work", "on the roof", "on the bed", "in the cupboard", "on the moon", "under the table", "in the desert", "in the white house", "behind the door", "in the underground", "in your flat", "in the parallel world"]
 
 def getSent():
-    return "{adjective} {person} is {verb} {place}. ".format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)) + nss
+    return "{adjective} {person} is {verb} {place}. ".format(adjective=random.choice(adjective), verb=random.choice(verb), person=random.choice(person), place=random.choice(place)).replace("  ", " ") + nss
 
 
 def nextarg(arg):                                                # function for better readability
