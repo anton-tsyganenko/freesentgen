@@ -30,18 +30,21 @@ defaultNum = 30                                                  # default numbe
 
 if "-h" in sys.argv:                                             # printing help
     print (
-"Freesentgen - free random sentences generator by Anton Tsyganenko\n\
-options:\n\
--add <file>   - use an addition\n\
--n <number>   - number of sentences\n\
--o <file>     - output to file\n\
--nss <value>  - non-default separator. available values: none, br, br+nl or your arbitrary value\n\
--h            - this help\n\n\
-examples of usage:\n\
-./freesentgen.py -wb wordsbase.txt -n 10 -i -nss br+nl\n\
-./freesentgen.py -o ../content.html -nss \<hr\> -n 50\n\n\
-see README.txt for deatils\n\
-this program is published under the MIT license. see LICENSE.txt for licensing details.".format(v=version))
+"""Freesentgen - free random sentences generator by Anton Tsyganenko
+
+options:
+-add <file>   - use an addition
+-n <number>   - number of sentences
+-o <file>     - output to file
+-nss <value>  - non-default separator. available values: none, br, br+nl or your arbitrary value
+-h            - this help
+
+examples of usage:
+./freesentgen.py -wb wordsbase.txt -n 10 -i -nss br+nl
+./freesentgen.py -o ../content.html -nss \<hr\> -n 50
+
+See README.txt for deatils
+This program is published under the MIT license. See LICENSE.txt for licensing details.""")
     exit()
 
 
@@ -64,7 +67,6 @@ def nextarg(arg):                                                # function for 
     except:
         print ("no argument value found. use \"./freesentgen -h\" for help")
         exit ()
-
 
 
 if "-add" in sys.argv:                                           # additions support
